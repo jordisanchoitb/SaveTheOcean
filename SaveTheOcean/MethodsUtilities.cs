@@ -4,6 +4,14 @@ namespace SaveTheOcean
 {
     public static class MethodsUtilities
     {
+        const string MSG_INFOLINE = "+-------------------------------------------------------------+";
+        const string MSG_INFONAME_RES = "|                       RESCAT                                |";
+        const string MSG_INFORES = "| # Rescat | Data rescat | Superfamília   | GA | Localització |";
+        const string MSG_INFORES_STATS = "|  {0,-6}  | {1,-10} | {2,-14} | {3,-2} | {4,-12} |";
+        const string MSG_INFONAME_SHEET = "|                       FITXA                                 |";
+        const string MSG_INFOSHEET = "| # Nom  | Superfamília   | Espècie       | Pes aproximat     |";
+        const string MSG_INFOSHEET_STATS = "| {0,-6} | {1,-14} | {2,-8} | {3,-15:F1}kg |";
+
         /// <summary>
         /// Retorna un booleà indicant si el número usuari està entre min i max (inclosos)
         /// </summary>
@@ -59,7 +67,7 @@ namespace SaveTheOcean
         /// </summary>
         /// <param name="superfamily">nom superfamilia ("Tortuga marina", "Au marina", "Cetaceo")</param>
         /// <returns>AAnimal</returns>
-        public static AAnimal? ObtenerAnimalPorSuperfamilia(string superfamily)
+        public static AAnimal? GetAnimalBySuperfamily(string superfamily)
         {
             switch (superfamily)
             {
@@ -72,6 +80,28 @@ namespace SaveTheOcean
                 default:
                     return null;
             }
+        }
+
+        public static void PrintInfoData(Rescued rescued)
+        {
+            Console.WriteLine(MSG_INFOLINE);
+            Console.WriteLine(MSG_INFONAME_RES);
+            Console.WriteLine(MSG_INFOLINE);
+            Console.WriteLine(MSG_INFORES);
+            Console.WriteLine(MSG_INFOLINE);
+            Console.WriteLine(MSG_INFORES_STATS, rescued.Number, rescued.Date, rescued.Superfamily, rescued.Animal.GradeAfectation, rescued.Location);
+            Console.WriteLine(MSG_INFOLINE);
+        }
+
+        public static void PrintInfoDataSheet(Rescued rescued)
+        {
+            Console.WriteLine(MSG_INFOLINE);
+            Console.WriteLine(MSG_INFONAME_SHEET);
+            Console.WriteLine(MSG_INFOLINE);
+            Console.WriteLine(MSG_INFOSHEET);
+            Console.WriteLine(MSG_INFOLINE);
+            Console.WriteLine(MSG_INFOSHEET_STATS, rescued.Animal.Name, rescued.Animal.Superfamily, rescued.Animal.Specie, rescued.Animal.WeightAprox);
+            Console.WriteLine(MSG_INFOLINE);
         }
     }
 }
