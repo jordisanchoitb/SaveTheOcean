@@ -21,7 +21,7 @@ namespace SaveTheOcean
         /// <returns></returns>
         public static bool ValidateOption(int usernumber, int min, int max)
         {
-            return !(usernumber >= min && usernumber <= max);
+            return usernumber >= min && usernumber <= max;
         }
 
 
@@ -39,7 +39,7 @@ namespace SaveTheOcean
 
 
         /// <summary>
-        /// Retorna un número aleatori entre 0 i max
+        /// Retorna un número aleatori entre 0 i max (excloit)
         /// </summary>
         /// <param name="max">Numero Entero</param>
         /// <returns>int</returns>
@@ -82,6 +82,11 @@ namespace SaveTheOcean
             }
         }
 
+
+        /// <summary>
+        /// Imprimeix per consola les dades del rescat passat per paràmetre
+        /// </summary>
+        /// <param name="rescued">objecta Rescued</param>
         public static void PrintInfoData(Rescued rescued)
         {
             Console.WriteLine(MSG_INFOLINE);
@@ -93,6 +98,11 @@ namespace SaveTheOcean
             Console.WriteLine(MSG_INFOLINE);
         }
 
+
+        /// <summary>
+        /// Imprimeix per consola les dades de la fitxa del rescat passat per paràmetre
+        /// </summary>
+        /// <param name="rescued">objecta Rescued</param>
         public static void PrintInfoDataSheet(Rescued rescued)
         {
             Console.WriteLine(MSG_INFOLINE);

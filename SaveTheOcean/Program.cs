@@ -43,7 +43,7 @@ namespace SaveTheOcean
                 }
                 userOption = Convert.ToInt32(Console.ReadLine());
                 errorSetOption = true;
-            } while (MethodsUtilities.ValidateOption(userOption, MIN_OPTION, MAX_OPTION));
+            } while (!MethodsUtilities.ValidateOption(userOption, MIN_OPTION, MAX_OPTION));
 
             if (userOption == 1)
             {
@@ -57,7 +57,7 @@ namespace SaveTheOcean
                     }
                     userRole = Convert.ToInt32(Console.ReadLine());
                     errorSetOption = true;
-                } while (MethodsUtilities.ValidateOption(userRole, MIN_OPTION, MAX_OPTION));
+                } while (!MethodsUtilities.ValidateOption(userRole, MIN_OPTION, MAX_OPTION));
 
                 Console.WriteLine(ENTER_NAME);
                 namePlayer = Console.ReadLine() ?? "Pepito";
@@ -99,7 +99,7 @@ namespace SaveTheOcean
                     }
                     decisionTreatment = Convert.ToInt32(Console.ReadLine());
                     errorSetOption = true;
-                } while (MethodsUtilities.ValidateOption(decisionTreatment, MIN_OPTION, MAX_OPTION));
+                } while (!MethodsUtilities.ValidateOption(decisionTreatment, MIN_OPTION, MAX_OPTION));
 
                 heal = (decisionTreatment == ONE);
                 newGradeAfectation = animal.CalculateNewGradeAfectation(heal);
