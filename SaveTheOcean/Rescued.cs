@@ -1,6 +1,4 @@
 ﻿using System;
-using Utilities;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SaveTheOcean
 {
@@ -15,11 +13,11 @@ namespace SaveTheOcean
 
         public Rescued(string superfamily)
         {
-            this.Number = "RES" +  Utilities.Utilities.RandomNum(1000).ToString("D3");
+            this.Number = "RES" +  MethodsUtilities.RandomNum(1000).ToString("D3");
             this.Date = DateTime.Now.ToString("dd/MM/yyyy");
             this.Superfamily = superfamily;
-            this.GradeAfectation = Utilities.Utilities.RandomNum(1, 100);
-            this.Location = Locations[Utilities.Utilities.RandomNum(Locations.Length)];
+            this.GradeAfectation = MethodsUtilities.RandomNum(1, 100);
+            this.Location = Locations[MethodsUtilities.RandomNum(Locations.Length)];
         }
     }
 }

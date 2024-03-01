@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Utilities
+namespace SaveTheOcean
 {
-    public static class Utilities
+    public static class MethodsUtilities
     {
         /// <summary>
         /// Retorna un booleà indicant si el número usuari està entre min i max (inclosos)
@@ -48,7 +48,7 @@ namespace Utilities
         /// <returns>string</returns>
         public static string GetRandomSuperfamily()
         {
-            string[] superfamily = { "Tortuga marina", "Au marina", "Cetáceo" };
+            string[] superfamily = { "Tortuga marina", "Au marina", "Cetaceo" };
             int index = RandomNum(superfamily.Length);
             return superfamily[index];
         }
@@ -57,18 +57,18 @@ namespace Utilities
         /// <summary>
         /// Retorna l'instància d'Animal corresponent a la superfamilia passada per paràmetre
         /// </summary>
-        /// <param name="superfamily">nom superfamilia ("Tortuga marina", "Au marina", "Cetáceo")</param>
+        /// <param name="superfamily">nom superfamilia ("Tortuga marina", "Au marina", "Cetaceo")</param>
         /// <returns>AAnimal</returns>
         public static AAnimal? ObtenerAnimalPorSuperfamilia(string superfamily)
         {
             switch (superfamily)
             {
                 case "Tortuga marina":
-                    return new TortugaMarina();
+                    return new SeaTurtle();
                 case "Au marina":
-                    return new AuMarina();
-                case "Cetáceo":
-                    return new Cetaceo();
+                    return new SeaBird();
+                case "Cetaceo":
+                    return new Cetaceans();
                 default:
                     return null;
             }

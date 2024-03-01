@@ -1,5 +1,4 @@
 ﻿using System;
-using Utilities;
 
 namespace SaveTheOcean
 {
@@ -10,12 +9,12 @@ namespace SaveTheOcean
             this.Species = ["Gaviota de audouin", "Pardela cenicienta", "Alcatraz comu", "Cormoran gran"];
             this.WeightSpecies = [0.65, 1.0, 3.0, 4.0];
             this.AnimalNames = ["Albatros", "Marlin", "Oceana", "Skye", "Wave"];
-            this.NumSpecie = Utilities.Utilities.RandomNum(Species.Length);
-            this.Name = AnimalNames[Utilities.Utilities.RandomNum(AnimalNames.Length)];
+            this.NumSpecie = MethodsUtilities.RandomNum(Species.Length);
+            this.Name = AnimalNames[MethodsUtilities.RandomNum(AnimalNames.Length)];
             this.Specie = Species[NumSpecie];
             this.Superfamily = "Au marina";
             this.WeightAprox = WeightSpecies[NumSpecie];
-            this.GradeAfectation = Utilities.Utilities.RandomNum(1,100);
+            this.GradeAfectation = MethodsUtilities.RandomNum(1,100);
         }
         public override int CalculateNewGradeAfectation(bool heal)
         {
