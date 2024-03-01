@@ -32,6 +32,15 @@ namespace SaveTheOcean
             string namePlayer, superFamily;
             bool heal, errorSetOption = false;
 
+            // Agafem un super família aleatòria a partir del mètode GetRandomSuperfamily
+            superFamily = MethodsUtilities.GetRandomSuperfamily();
+
+            // Instanciem un animal a rescata de la super família obtinguda anteriorment
+            AAnimal animal = MethodsUtilities.GetAnimalBySuperfamily(superFamily) ?? new SeaTurtle();
+
+            // Instanciem un rescat amb la super família obtinguda anteriorment
+            Rescued rescued = new Rescued(animal);
+            
             Console.WriteLine(TITLE);
             Console.WriteLine(WELCOME);
             Console.WriteLine(MENU);
@@ -68,16 +77,6 @@ namespace SaveTheOcean
                 xpPlayer = userRole == 1 ? 45 : 80;
                 // Instancio el jugador
                 Player player = new Player(namePlayer, xpPlayer);
-
-                // Agafem un super família aleatòria a partir del mètode GetRandomSuperfamily
-                superFamily = MethodsUtilities.GetRandomSuperfamily();
-
-                // Instanciem un animal a rescata de la super família obtinguda anteriorment
-                AAnimal animal = MethodsUtilities.GetAnimalBySuperfamily(superFamily) ?? new SeaTurtle();
-
-                // Instanciem un rescat amb la super família obtinguda anteriorment
-                Rescued rescued = new Rescued(animal);
-
                 
                 Console.WriteLine(MSG_112_RESCUED, player.Name);
                 Console.WriteLine(MSG_INFODATA);
