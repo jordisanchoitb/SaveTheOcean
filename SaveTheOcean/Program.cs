@@ -24,8 +24,9 @@ namespace SaveTheOcean
             const string MSG_XPDECREASE = " La teva experiència s’ha reduït en -{0}XP.";
             const string MSG_EXPERIENTPOINTS = "Punts d'experiència totals: {0}";
             const string MSG_BYE = "Fins el proper rescat!";
+            const string DEFAULT_NAME = "Pepito";
 
-            const int MIN_OPTION = 1, MAX_OPTION = 2, ONE=1, FIVE=5, FIFTY = 50, TWENTY = 20;
+            const int MIN_OPTION = 1, MAX_OPTION = 2, ONE=1, FIVE=5, FIFTY = 50, TWENTY = 20, ZERO=0, FORTYFIVE = 45, EIGHTING = 80;
 
 
             int userOption, userRole, decisionTreatment, xpPlayer, newGradeAfectation;
@@ -54,7 +55,8 @@ namespace SaveTheOcean
                 errorSetOption = true;
             } while (!MethodsUtilities.ValidateOption(userOption, MIN_OPTION, MAX_OPTION));
 
-            if (userOption == 1)
+
+            if (userOption == ONE)
             {
                 Console.WriteLine(MENU2);
                 errorSetOption = false;
@@ -69,12 +71,12 @@ namespace SaveTheOcean
                 } while (!MethodsUtilities.ValidateOption(userRole, MIN_OPTION, MAX_OPTION));
 
                 Console.WriteLine(ENTER_NAME);
-                namePlayer = Console.ReadLine() ?? "Pepito";
-                if (namePlayer.Length == 0)
+                namePlayer = Console.ReadLine() ?? DEFAULT_NAME;
+                if (namePlayer.Length == ZERO)
                 {
-                    namePlayer = "Pepito";
+                    namePlayer = DEFAULT_NAME;
                 }
-                xpPlayer = userRole == 1 ? 45 : 80;
+                xpPlayer = userRole == ONE ? FORTYFIVE : EIGHTING;
                 // Instancio el jugador
                 Player player = new Player(namePlayer, xpPlayer);
                 
